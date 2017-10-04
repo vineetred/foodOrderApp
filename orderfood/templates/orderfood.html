@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="orderaccepted" method="POST">
+
+    {% csrf_token %}
+    outlet:<br>
+    <select name="outlet">
+        <option value="foodjunction">Food Junction</option>
+        <option value="hunger cycle">Hunger Cycle</option>
+    </select>
+    <br>
+    order:<br>
+    <input type="text" name="order">
+    <br><br>
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
