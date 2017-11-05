@@ -11,8 +11,9 @@ def storeorder(request):
     inpt= request.POST  #getting post data as inpt
     outlet = inpt["outlet"]   #accessing parameters of data
     order = inpt["order"]
-    username = request.user.username   #obtaining username of current user
-    p = foodjunction(name=username, order=order)    #creating a record
+    username = request.user.get_username()   #obtaining username of current user
+    print(username, "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+    p = foodjunction(name=username, order=order, status= "open")    #creating a record
     p.save()  #saving record
     for i in foodjunction.objects.all():   #debug statement, ignore.
         print(i)   #debug statement, ignore.

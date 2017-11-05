@@ -13,6 +13,4 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^login', include(loginurls)),
     url(r'^orderfood', include(orderfoodurls)),
-
-
 ]
