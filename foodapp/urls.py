@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'^login', include(loginurls)),
     url(r'^orderfood', include(orderfoodurls)),
     url(r'^client', include(clientSideurls)),
+    
 
     
 ]
