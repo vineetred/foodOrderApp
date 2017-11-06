@@ -7,4 +7,5 @@ This website is being designed to enable orders to be placed by students, and re
     a) Need to create groups for student, outlet users to manage permissions on website. 
     b) Front end is lacking. 
     c) Order cancellation, update etc.
-    d) Payment?   
+    d) Payment?
+
