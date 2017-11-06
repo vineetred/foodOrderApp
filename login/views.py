@@ -26,5 +26,8 @@ def trying(request):
     if user_authenticated != None:   #if user is authenticated
         print("inside != none!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", request.user.username, request.user.get_username())
         return redirect('/orderfood')   #render the order-food page
+    if user_authenticated !=none and username == 'thehungercycle': #Client Side login!
+        return redirect = ('/clientside/thc')
+
     else:  #if user is not authenticated
         return redirect('/login')   #go back to login page
