@@ -25,6 +25,13 @@ def order(request):
     return render(request, "client/order.html",{'q':q})
 
 def done(request):
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 011996adc511c42b3511e7dd8b984a795bee6221
+>>>>>>> e3589198bd5b66d37e5fe5b0484040964701b68c
     data = request.POST.get("Order")
     mark = data["Order"]
     foodjunction.objects.filter(order =mark).update(status = 'close')
@@ -32,4 +39,18 @@ def done(request):
     return redirect('/client/order')
 
 
+<<<<<<< HEAD
  
+=======
+<<<<<<< HEAD
+ 
+=======
+ 
+=======
+    data = request.POST
+    mark = data["done"]
+    #r = foodjunction.objects.
+
+>>>>>>> eca7ac47de7204424098392e2aa5f91cc5f757a3
+>>>>>>> 011996adc511c42b3511e7dd8b984a795bee6221
+>>>>>>> e3589198bd5b66d37e5fe5b0484040964701b68c

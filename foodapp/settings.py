@@ -39,6 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'login',    #adding names of apps here in order for them to work
     'orderfood',
+<<<<<<< HEAD
+=======
+    'social_django',
+>>>>>>> e3589198bd5b66d37e5fe5b0484040964701b68c
     'accounts',
 
 ]
