@@ -3,8 +3,12 @@ from django.http import HttpResponse
 from orderfood.models import hungercycle, foodjunction, foodjunction_menu
 
 def inputorder(request):
+<<<<<<< HEAD
     q = foodjunction.objects.values_list('order').filter(status="open").order_by('status')
     out = foodjunction_menu.objects.values_list('foodItem','foodPrice')
+=======
+    out = foodjunction.objects.all()
+>>>>>>> 011996adc511c42b3511e7dd8b984a795bee6221
     return render(request, "orderfood.html",{'out': out})
 
 

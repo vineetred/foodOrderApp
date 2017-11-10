@@ -19,8 +19,11 @@ urlpatterns = [
     url(r'^users/', include('django.contrib.auth.urls')),
     url(r'^$', TemplateView.as_view(template_name='index.html'), name='index'),
     url(r'^client', include (clientSideurls)),
+<<<<<<< HEAD
     url(r'^accounts', include('accounts.urls')),
 
+=======
+>>>>>>> 011996adc511c42b3511e7dd8b984a795bee6221
 
     
 
