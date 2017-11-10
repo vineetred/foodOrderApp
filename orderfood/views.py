@@ -1,20 +1,26 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from orderfood.models import hungercycle, foodjunction
+from orderfood.models import hungercycle, foodjunction, foodjunction_menu
 
 def inputorder(request):
-    return render(request, "orderfood.html")
+    q = foodjunction.objects.values_list('order').filter(status="open").order_by('status')
+    out = foodjunction_menu.objects.values_list('foodItem','foodPrice')
+    return render(request, "orderfood.html",{'out': out})
 
 
 #this function stores the order.
 def storeorder(request):
-    inpt= request.POST  #getting post data as inpt
-    outlet = inpt["outlet"]   #accessing parameters of data
-    order = inpt["order"]
+    #inpt= request.POST #getting post data as inpt
+    outlet = request.POST.get('outlet')   #accessing parameters of data
+    #order = inpt["Order"]
+    order = request.POST.get('Order')
     username = request.user.get_username()   #obtaining username of current user
     print(username, "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-    p = foodjunction(name=username, order=order, status= "open")    #creating a record
-    p.save()  #saving record
-    for i in foodjunction.objects.all():   #debug statement, ignore.
-        print(i)   #debug statement, ignore.
-    return HttpResponse("order received")
+    if(outlet=="foodjunction"):
+        p = foodjunction(name=username, order=order, status= "open")    #creating a record
+        p.save()  #saving record
+    if(outlet=="hunger cycle"):
+        p = hungercycle(name=username, order = order, status = "open" )
+        p.save()
+
+    return render(request, "orderaccepted.html",{'p': p})

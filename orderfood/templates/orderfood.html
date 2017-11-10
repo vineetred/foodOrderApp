@@ -15,10 +15,21 @@
         <option value="hunger cycle">Hunger Cycle</option>
     </select>
     <br>
-    order:<br>
-    <input type="text" name="order">
+    order:
+
+    <select>
+    {% for i in out %}
+    
+        <option name="Order">{{i}}</option></br>
+    
+    {%endfor%}
+</select>
+    <br>
     <br><br>
     <input type="submit" value="Submit">
+
+        
+
 </form>
 
 </body>
