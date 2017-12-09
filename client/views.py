@@ -21,13 +21,19 @@ def clientAuth(request):
         return redirect('/client')   #go back to login page
 
 def order(request):
-    q = foodjunction.objects.values_list('order').filter(status="open")
-    return render(request, "client/order.html",{'q':q})
+    orderList= foodjunction.objects.all().filter(status="open")
+    for order in orderList:
+        print(order.id)
+    return render(request, "client/order.html",{'orderList':orderList})
 
 def done(request):
     #data = request.POST.get("Order")
     mark = request.POST.get("Order")
-    foodjunction.objects.filter(order =mark).update(status = 'close')
+    print (">>>>>>>>>>>>>>>>>>>", mark)
+    obj= foodjunction.objects.get(pk = mark)
+    print(">>>>>>>>>>>>>>>>>>>>>>>",obj.status)
+    obj.status="close"
+    obj.save()
     
     return redirect('/client/order')
 
