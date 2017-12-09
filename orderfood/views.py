@@ -2,6 +2,11 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from orderfood.models import hungercycle, foodjunction, foodjunction_menu
 
+
+def chooseOutlet(request):
+    return render(request, "chooseOutlet.html")
+
+
 def inputorder(request):
     out = foodjunction_menu.objects.values_list('foodItem','foodPrice')
     return render(request, "orderfood.html",{'out': out})
