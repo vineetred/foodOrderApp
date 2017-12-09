@@ -6,22 +6,16 @@
 </head>
 <body>
 
-<form action="orderaccepted" method="POST">
+<form name ="order" action="http://127.0.0.1:8000/orderfood/orderaccepted" method="POST">
 
     {% csrf_token %}
-    outlet:<br>
-    <select name="outlet">
-        <option value="foodjunction">Food Junction</option>
-        <option value="hunger cycle">Hunger Cycle</option>
-    </select>
-    <br>
-    order:
 
-    <select name = "Order">
+    order:<br>
+
+    <input type="hidden" name="outlet" value={{outlet}}>
+
     {% for i in out %}
-    
-        <option value={{i}}>{{i}}</option></br>
-    
+        {{i}}<br><input type="number" name="{{i}}"> <br><br><br>
     {%endfor%}
 </select>
     <br>
