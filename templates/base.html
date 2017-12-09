@@ -10,7 +10,8 @@
     <h1>ViViHa Login</h1>
     {% if user.is_authenticated %}
       Hi {{ user.username }}!
-      <p><a href="/orderfood">orderfood</a></p>
+      <p><a href="/orderhistory">Order History</a></p>
+      <p><a href="/orderfood">Order Food</a></p>
       <p><a href="{% url 'logout' %}">logout</a></p>
     {% else %}
       <p>You are not logged in</p>
