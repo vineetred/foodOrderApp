@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'login',    #adding names of apps here in order for them to work
     'orderfood',
     'accounts',
+    'orderhistory',
 
 ]
 
