@@ -25,8 +25,8 @@ def order(request):
     return render(request, "client/order.html",{'q':q})
 
 def done(request):
-    data = request.POST.get("Order")
-    mark = data["Order"]
+    #data = request.POST.get("Order")
+    mark = request.POST.get("Order")
     foodjunction.objects.filter(order =mark).update(status = 'close')
     
     return redirect('/client/order')
