@@ -9,8 +9,8 @@
 
     {% csrf_token %}
     Your pending orders are:
-    {% for i in q %}
-    <div>
+    {% for i in orderList %}
+    <div id={{i.id}}>
         Order: {{i}}<br>    
     </div>    
     {%endfor%}
@@ -20,12 +20,12 @@
             {% csrf_token %}
             Mark done:<br>
             <select name="Order">
-            {% for i in q %}
+            {% for i in orderList %}
             
-                <option value="Order">{{i}}</option></br>
+                <option value={{i.id}}>{{i}}</option></br>
             
             {%endfor%}
-        </select>
+            </select>
             <input type="submit" value="Submit">
             
             <br>
