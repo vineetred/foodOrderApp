@@ -15,7 +15,7 @@ def clientAuth(request):
     user_authenticated = authenticate(username=username, password=password)     #inbuilt django function to try and authenticate user. user= None, if not authenticated
     if user_authenticated != None:   #if user is authenticated
         print("inside != none!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", request.user.username, request.user.get_username())
-        return redirect('/clientOrder')   #render the order-food page
+        return redirect('/client/order')   #render the order-food page
 
     else:  #if user is not authenticated
         return redirect('/client')   #go back to login page
