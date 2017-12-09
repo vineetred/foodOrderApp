@@ -32,9 +32,8 @@ def storeorder(request):
     for i in request.POST:
         if inpt[i] and i not in ("csrfmiddlewaretoken", "outlet"):
             item= i.split("-")[0]
-            print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", item)
-            order_display_list+= [item+ str(inpt[i])]
-            order= order + item+ str(inpt[i])
+            order_display_list+= [item+ str(inpt[i])+","]
+            order= order + str(inpt[i]) + "-" + str(item) + ","
     username = request.user.get_username()   #obtaining username of current user
     if(outlet=="foodjunction"):
         p = foodjunction(name=username, order=order, status= "open")    #creating a record
