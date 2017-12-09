@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from orderfood.models import hungercycle, foodjunction, foodjunction_menu
+from clientSide.views import *
 
 
 def chooseOutlet(request):

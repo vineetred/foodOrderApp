@@ -21,7 +21,12 @@ def clientAuth(request):
         return redirect('/client')   #go back to login page
 
 def order(request):
-    orderList= foodjunction.objects.all().filter(status="open")
+    print ("2222222222222222222222222222222222222222", request.user.username)
+    if request.user.username== "foodjunction":
+        orderList= foodjunction.objects.all().filter(status="open")
+    if request.user.username== "hungercycle":
+        orderList = hungercycle.objects.all().filter(status="open")
+    orderList =  foodjunction.objects.all().filter(status="open")
     for order in orderList:
         print(order.id)
     return render(request, "client/order.html",{'orderList':orderList})
