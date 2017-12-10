@@ -9,7 +9,13 @@
 
     {% csrf_token %}
     
-    Thank you! Your order of {{p.order}} has been received
+    Thank you! Your order of {{p.order}} has been received but the payment is still pending.</br>
+
+    Pay within 5 minutes here: <div class="pm-button">
+        <a href="https://www.payumoney.com/paybypayumoney/#/ADA300C589181DC57E846F8C378CC2B4">
+          <img src="https://www.payumoney.com/media/images/payby_payumoney/new_buttons/21.png" />
+        </a>
+      </div>
     <p><a href="http://127.0.0.1:8000"> Home </a></p>
     
 </body>
