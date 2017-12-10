@@ -6,12 +6,22 @@
 </head>
 <body>
 <p>Food Junction</p><br>
-{% for i in orderListFoodjunction %}
-    {{i}}
+<p> Open Orders</p><br>
+{% for i in orderListFoodjunction_open %}
+    {{i}}<br>
+{%endfor%}
+<p> Closed Orders</p><br>
+{% for i in orderListFoodjunction_close %}
+    {{i}}<br>
 {%endfor%}
 <p>Hunger Cycle</p><br>
-{% for i in orderListHungercycle %}
-    {{i}}
+<p>Open Orders</p>
+{% for i in orderListHungercycle_open %}
+    {{i}}<br>
+{%endfor%}
+<p>Closed Orders</p>
+{% for i in orderListHungercycle_close %}
+    {{i}}<br>
 {%endfor%}
 </body>
 </html>
