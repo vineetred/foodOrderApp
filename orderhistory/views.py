@@ -9,7 +9,8 @@ from orderfood.models import hungercycle, foodjunction
 
 def orderHistory(request):
     username= request.user.username
-    orderList= foodjunction.objects.all().filter(name= username)
-    for i in orderList:
-        print(i)
-    return render(request, "orderHistory.html", {'orderList': orderList})
+    orderListFoodjunction= foodjunction.objects.all().filter(name= username)
+    orderListHungercycle = hungercycle.objects.all().filter(name=username)
+    #for i in range(len(orderList)):
+    #    orderList[i]= str(orderList[i]).strip(username)
+    return render(request, "orderHistory.html", {'orderListFoodjunction': orderListFoodjunction,'orderListHungercycle': orderListHungercycle})

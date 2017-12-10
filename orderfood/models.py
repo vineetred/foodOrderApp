@@ -17,7 +17,8 @@ class hungercycle(models.Model):
 class hungercycle_menu(models.Model):
     foodItem = models.CharField(max_length = 300) #Item name
     foodPrice = models.IntegerField() #Cost of the item
-
+    def __str__(self):
+        return self.foodItem + str("------")+ str(self.foodPrice)
 
 class foodjunction(models.Model):
     name= models.CharField(max_length=5000)
