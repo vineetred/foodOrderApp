@@ -9,8 +9,13 @@
 
     {% csrf_token %}
     
-    Thank you! Your order of {{p.order}} has been received but the payment is still pending.</br>
-
+    Thank you!
+    Your order of: <br><br>
+    {% for i in p %}
+    {{i}}<br>
+    {% endfor %}
+    <br>has been received but the payment is still pending.</br>
+    <p style="font-weight: bold">Total amount is {{total}}</p>
     Pay within 5 minutes here: <div class="pm-button">
         <a href="https://www.payumoney.com/paybypayumoney/#/ADA300C589181DC57E846F8C378CC2B4">
           <img src="https://www.payumoney.com/media/images/payby_payumoney/new_buttons/21.png" />
