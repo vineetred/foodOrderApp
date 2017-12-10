@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'accounts',
     'orderhistory',
 
+
 ]
 
 AUTHENTICATION_BACKENDS = (

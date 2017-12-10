@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from orderfood.models import hungercycle, foodjunction, foodjunction_menu
+from orderfood.models import hungercycle, foodjunction, foodjunction_menu, hungercycle_menu
 from clientSide.views import *
 
 
@@ -9,7 +9,7 @@ def chooseOutlet(request):
 
 
 def inputorder(request):
-    outletMap= {"foodjunction": foodjunction_menu,}
+    outletMap= {"foodjunction": foodjunction_menu,"hungercycle": hungercycle_menu}
     outlet = request.get_full_path().split("/")[-2]
     out = outletMap[outlet].objects.all()
     print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", type(out))
@@ -39,7 +39,7 @@ def storeorder(request):
     if(outlet=="foodjunction"):
         p = foodjunction(name=username, order=order, status= "open")    #creating a record
         p.save()  #saving record
-    if(outlet=="hunger cycle"):
+    if(outlet=="hungercycle"):
         p = hungercycle(name=username, order = order, status = "open" )
         p.save()
     return render(request, "orderaccepted.html", {'p': p})
