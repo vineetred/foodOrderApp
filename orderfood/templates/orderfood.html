@@ -15,7 +15,7 @@
     <input type="hidden" name="outlet" value={{outlet}}>
 
     {% for i in out %}
-        {{i}}<br><input type="number" name="{{i}}"> <br><br><br>
+        {{i}}<br><input type="number" min="0" name="{{i}}"> <br><br><br>
     {%endfor%}
 </select>
     <br>

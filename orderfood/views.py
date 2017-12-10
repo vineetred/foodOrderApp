@@ -30,11 +30,14 @@ def storeorder(request):
     order=""
     order_display_list=[]
     flag=False
+    total = 0
     for i in request.POST:
         if inpt[i] and i not in ("csrfmiddlewaretoken", "outlet"):
             item= i.split("-")[0]
-            order_display_list+= [item+ str(inpt[i])+","]
+            price_item= i.split("-")[-1]
+            total= total+ int(inpt[i])*int(price_item)
             order= order + str(inpt[i]) + "-" + str(item) + ","
+
     username = request.user.get_username()   #obtaining username of current user
     if(outlet=="foodjunction"):
         p = foodjunction(name=username, order=order, status= "open")    #creating a record
@@ -42,4 +45,5 @@ def storeorder(request):
     if(outlet=="hungercycle"):
         p = hungercycle(name=username, order = order, status = "open" )
         p.save()
-    return render(request, "orderaccepted.html", {'p': p})
+    p= [i for i in p.order.split(",") if i !=""]
+    return render(request, "orderaccepted.html", {'p': p, 'total': total})
