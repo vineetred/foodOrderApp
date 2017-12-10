@@ -7,6 +7,8 @@ from clientSide.views import *
 def chooseOutlet(request):
     return render(request, "chooseOutlet.html")
 
+def success(request):
+    return render(request, "success.html")
 
 def inputorder(request):
     outletMap= {"foodjunction": foodjunction_menu,"hungercycle": hungercycle_menu}
